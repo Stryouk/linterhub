@@ -1,0 +1,2222 @@
+{
+    "$schema": "https://repometric.github.io/linterhub/schema/bundle.json",
+    "alex": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "id": "alex",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/options"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--quiet": {
+                            "id": "args:--quiet",
+                            "type": "null",
+                            "description": "output only warnings and errors"
+                        },
+                        "--text": {
+                            "id": "args:--text",
+                            "type": "string",
+                            "description": "treat input as plain-text (not markdown)"
+                        },
+                        "--diff": {
+                            "type": "null",
+                            "description": "ignore unchanged lines (affects Travis only)"
+                        },
+                        "--why": {
+                            "type": "null",
+                            "description": "output sources (when available)"
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "alex"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "alex",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "alex",
+                        "version": "5.1.0",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "alex",
+            "description": "Catch insensitive, inconsiderate writing",
+            "url": "http://alexjs.com",
+            "languages": [
+                "Text"
+            ],
+            "license": "MIT"
+        }
+    },
+    "colorguard": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "name": "colorguard",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/arguments"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--file": {
+                            "id": "linterhub:filename",
+                            "type": "string",
+                            "description": "Reads csslint options from specified file"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Show help"
+                        },
+                        "--threshold": {
+                            "id": "args:--threshold",
+                            "type": "null",
+                            "description": "Threshold of allowable color difference"
+                        },
+                        "--allow-equivalent-notation": {
+                            "id": "args:--allow-equivalent-notation",
+                            "type": "null",
+                            "description": " Allow equivalent notation of the same color, e.g. #000 and #000000"
+                        },
+                        "--options": {
+                            "type": "null",
+                            "description": "An optional JSON file containing all options (Overrides `--threshold`)"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "colorguard"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "colorguard",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "colorguard",
+                        "version": "1.2.0",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "colorguard",
+            "description": "Keep a watchful eye on your css colors",
+            "url": "http://github.com/SlexAxton/css-colorguard",
+            "languages": [
+                "CSS"
+            ],
+            "license": "MIT"
+        }
+    },
+    "csscomb": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "name": "csscomb",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/arguments"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--config": {
+                            "id": "linterhub:config",
+                            "type": "string",
+                            "description": "Specify a custom configuration file"
+                        },
+                        "--detect": {
+                            "id": "args:--detect",
+                            "type": "null",
+                            "description": "Run the tool in detect mode, returning detected options."
+                        },
+                        "--lint": {
+                            "id": "args:--lint",
+                            "type": "null",
+                            "description": "Run the tool in linter mode, without modifying files."
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Display help message."
+                        },
+                        "--vebose": {
+                            "type": "null",
+                            "description": "Whether to print logging info."
+                        },
+                        "--tty-mode": {
+                            "id": "linterhub:stdin",
+                            "type": "null",
+                            "description": "Run the tool in TTY mode using external app (e.g. IDE)."
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "csscomb"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "csscomb",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "csscomb",
+                        "version": "4.2.0",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "csscomb",
+            "description": "CSS coding style formatter",
+            "url": "http://csscomb.com/",
+            "languages": [
+                "CSS"
+            ],
+            "configs": [
+                ".json"
+            ],
+            "license": "MIT"
+        }
+    },
+    "csslint": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "name": "csslint",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/arguments"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--format": {
+                            "type": "string",
+                            "description": "Indicate which format to use for output",
+                            "enum": [
+                                "text",
+                                "compact",
+                                "lint-xml",
+                                "csslint-xml",
+                                "checkstyle-xml",
+                                "junit-xml"
+                            ]
+                        },
+                        "--list-rules": {
+                            "type": "null",
+                            "description": "Outputs all of the rules available"
+                        },
+                        "--quiet": {
+                            "id": "args:--quiet",
+                            "type": "null",
+                            "description": "Only output when errors are present"
+                        },
+                        "--errors": {
+                            "id": "args:--errors",
+                            "type": "string",
+                            "description": "Indicate which rules to include as errors"
+                        },
+                        "--warnings": {
+                            "id": "args:--warnings",
+                            "type": "string",
+                            "description": "Indicate which rules to include as warnings"
+                        },
+                        "--ignore": {
+                            "id": "args:--ignore",
+                            "type": "string",
+                            "description": "Indicate which rules to ignore completely"
+                        },
+                        "--exclude-list": {
+                            "id": "args:--exclude-list",
+                            "type": "string",
+                            "description": "Indicate which files/directories to exclude from being linted"
+                        },
+                        "--config": {
+                            "id": "linterhub:config",
+                            "type": "string",
+                            "description": "Reads csslint options from specified file"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Show help"
+                        },
+                        "--version": {
+                            "id": "linterhub:version",
+                            "type": "string",
+                            "description": "Show version"
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "csslint"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "csslint",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "csslint",
+                        "version": "1.0.5",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "csslint",
+            "description": "CSSLint",
+            "url": "http://csslint.net/",
+            "languages": [
+                "CSS",
+                "OOCSS"
+            ],
+            "configs": [
+                ".csslintrc"
+            ],
+            "license": "MIT"
+        }
+    },
+    "eslint": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "name": "eslint",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/arguments"
+                }
+            ],
+            "definitions": {
+                "cmd": {
+                    "success": 1,
+                    "version": "v4.19.1"
+                },
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--config": {
+                            "id": "linterhub:config",
+                            "type": "string",
+                            "description": "Use configuration from this file or shareable config"
+                        },
+                        "--no-eslintrc": {
+                            "id": "arg:--no-eslintrc",
+                            "type": "null",
+                            "description": "Disable use of configuration from .eslintrc"
+                        },
+                        "--env": {
+                            "id": "arg:--env",
+                            "type": "string",
+                            "description": "Specify environments"
+                        },
+                        "--ext": {
+                            "id": "arg:--ext",
+                            "type": "string",
+                            "description": "Specify JavaScript file extensions"
+                        },
+                        "--global": {
+                            "id": "arg:--global",
+                            "type": "string",
+                            "description": "Define global variables"
+                        },
+                        "--parser": {
+                            "id": "arg:--parser",
+                            "type": "string",
+                            "description": "Specify the parser to be used"
+                        },
+                        "--parser-options": {
+                            "id": "arg:--parser-options",
+                            "type": "string",
+                            "description": "Specify parser options"
+                        },
+                        "--cache": {
+                            "id": "arg:--cache",
+                            "type": "null",
+                            "description": "Only check changed files"
+                        },
+                        "--cache-location": {
+                            "id": "arg:-cache-location",
+                            "type": "string",
+                            "description": "Path to the cache file or directory"
+                        },
+                        "--rulesdir": {
+                            "id": "arg:--rulesdir",
+                            "type": "string",
+                            "description": "Use additional rules from this directory"
+                        },
+                        "--plugin": {
+                            "id": "arg:--plugin",
+                            "type": "string",
+                            "description": "Specify plugins"
+                        },
+                        "--rule": {
+                            "id": "arg:--rule",
+                            "type": "string",
+                            "description": "Specify rules"
+                        },
+                        "--ignore-path": {
+                            "id": "arg:--ignore-path",
+                            "type": "string",
+                            "description": "Specify path of ignore file"
+                        },
+                        "--no-ignore": {
+                            "id": "arg:--no-ignore",
+                            "type": "null",
+                            "description": "Disable use of ignore files and patterns"
+                        },
+                        "--ignore-pattern": {
+                            "id": "arg:--ignore-pattern",
+                            "type": "string",
+                            "description": "Pattern of files to ignore (in addition to those in .eslintignore)"
+                        },
+                        "--stdin": {
+                            "id": "linterhub:stdin",
+                            "type": "null",
+                            "description": "Lint code provided on stdin"
+                        },
+                        "--stdin-filename": {
+                            "id": "linterhub:filename",
+                            "type": "string",
+                            "description": "Specify filename to process stdin as"
+                        },
+                        "--quiet": {
+                            "id": "arg:--quiet",
+                            "type": "null",
+                            "description": "Report errors only"
+                        },
+                        "--max-warnings": {
+                            "id": "arg:--max-warnings",
+                            "type": "integer",
+                            "description": "Number of warnings to trigger nonzero exit code",
+                            "default": "-1"
+                        },
+                        "--output-file": {
+                            "type": "string",
+                            "description": "Specify file to write report to"
+                        },
+                        "--format": {
+                            "description": "Use a specific output format",
+                            "oneOf": [
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "checkstyle",
+                                        "codeframe",
+                                        "compact",
+                                        "html",
+                                        "jslint-xml",
+                                        "json",
+                                        "junit",
+                                        "stylish",
+                                        "table",
+                                        "tap",
+                                        "unix",
+                                        "visualstudio"
+                                    ]
+                                },
+                                {
+                                    "type": "string",
+                                    "format": "uri"
+                                }
+                            ],
+                            "default": "json"
+                        },
+                        "--color": {
+                            "type": "null",
+                            "description": "Force enabling of color"
+                        },
+                        "--no-color": {
+                            "type": "null",
+                            "description": "Force disabling of color"
+                        },
+                        "--init": {
+                            "type": "null",
+                            "description": "Run config initialization wizard"
+                        },
+                        "--fix": {
+                            "type": "null",
+                            "description": "Automatically fix problems"
+                        },
+                        "--debug": {
+                            "id": "arg:--debug",
+                            "type": "null",
+                            "description": "Output debugging information"
+                        },
+                        "--no-inline-config": {
+                            "id": "arg:--no-inline-config",
+                            "type": "null",
+                            "description": "Prevent comments from changing config or rules"
+                        },
+                        "--print-config": {
+                            "type": "null",
+                            "description": "Print the configuration to be used"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Show help"
+                        },
+                        "--version": {
+                            "id": "linterhub:version",
+                            "type": "null",
+                            "description": "Show version"
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "eslint"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "eslint",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "eslint",
+                        "version": "4.19.1",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "eslint",
+            "description": "A fully pluggable tool for identifying and reporting on patterns in JavaScript",
+            "url": "https://eslint.org",
+            "languages": [
+                "JavaScript",
+                "JSX"
+            ],
+            "configs": [
+                ".eslintrc",
+                ".eslintrc.json",
+                ".eslintrc.yaml",
+                ".eslintrc.yml",
+                ".eslintrc.js"
+            ],
+            "license": "MIT"
+        }
+    },
+    "html-inspector": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "name": "html-inspector",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/arguments"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--config": {
+                            "id": "linterhub:config",
+                            "type": "string",
+                            "description": "Reads csslint options from specified file"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Show help"
+                        },
+                        "--version": {
+                            "id": "linterhub:version",
+                            "type": "string",
+                            "description": "Show version"
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "html-inspector"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "html-inspector",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "html-inspector",
+                        "version": "0.8.2",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "html-inspector",
+            "description": "HTML Inspector is a code quality tool to help you and your team write better markup. It's written in JavaScript and runs in the browser, so testing your HTML has never been easier.",
+            "url": "https://github.com/philipwalton/html-inspector",
+            "languages": [
+                "HTML"
+            ],
+            "configs": [
+                ".js"
+            ],
+            "license": "MIT"
+        }
+    },
+    "jsonlint": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "name": "jsonlint",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/arguments"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--sort-keys": {
+                            "id": "args:--sort-keys",
+                            "type": "null",
+                            "description": "sort object keys"
+                        },
+                        "--in-place": {
+                            "id": "args:--in-place",
+                            "type": "null",
+                            "description": "overwrite the file"
+                        },
+                        "--indent": {
+                            "id": "args:--indent",
+                            "type": "array",
+                            "description": "character(s) to use for indentation"
+                        },
+                        "--compact": {
+                            "id": "args:--compact",
+                            "type": "null",
+                            "description": "compact error display"
+                        },
+                        "--validate": {
+                            "id": "args:--validate",
+                            "type": "null",
+                            "description": "a JSON schema to use for validation"
+                        },
+                        "--environment": {
+                            "id": "args:--environment",
+                            "type": "null",
+                            "description": "which specification of JSON Schema the validation file uses  [json-schema-draft-03]"
+                        },
+                        "--quiet": {
+                            "id": "args:--quiet",
+                            "type": "null",
+                            "description": "do not print the parsed json to STDOUT  [false]"
+                        },
+                        "--pretty-print": {
+                            "id": "args:--pretty-print",
+                            "type": "null",
+                            "description": "force pretty printing even if invalid"
+                        },
+                        "-h": {
+                            "type": "null",
+                            "description": "Show help"
+                        },
+                        "--version": {
+                            "id": "linterhub:version",
+                            "type": "string",
+                            "description": "Show version"
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "jsonlint"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "jsonlint",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "jsonlint",
+                        "version": "1.6.2",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "jsonlint",
+            "description": "Validate JSON",
+            "url": "http://zaach.github.com/jsonlint/",
+            "languages": [
+                "JSON"
+            ],
+            "license": "MIT"
+        }
+    },
+    "markdownlint": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "id": "markdownlint",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/options"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--ignore": {
+                            "id": "args:--ignore",
+                            "type": "string",
+                            "description": "files to ignore/exclude"
+                        },
+                        "--config": {
+                            "id": "linterhub:config",
+                            "type": "string",
+                            "description": "Path to config file of linter"
+                        },
+                        "--stdin": {
+                            "id": "linterhub:stdin",
+                            "type": "null",
+                            "description": "Read source from standard input"
+                        },
+                        "--output": {
+                            "id": "linterhub:filename",
+                            "type": "string",
+                            "description": "write issues to file (no console)"
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "output usage information"
+                        },
+                        "--version": {
+                            "type": "null",
+                            "description": "output the version number"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "markdownlint"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "markdownlint",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "markdownlint-cli",
+                        "version": "0.8.1",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "markdownlint",
+            "description": "Markdownlint is a static analysis tool for Node.js and io.js with a library of rules to enforce standards and consistency for Markdown files",
+            "url": "https://github.com/igorshubovych/markdownlint-cli",
+            "languages": [
+                "Markdown"
+            ],
+            "license": "MIT"
+        }
+    },
+    "nsp": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "id": "nsp",
+            "name": "nsp",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/arguments"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "description": "The engine command line arguments",
+                    "properties": {
+                        "--config": {
+                            "id": "linterhub:--config",
+                            "type": "string",
+                            "description": "path to config file"
+                        },
+                        "check": {
+                            "id": "args:check",
+                            "type": "string",
+                            "description": "checks a project for known vulnerabilities against the Node Security API",
+                            "enum": [
+                                "--filter",
+                                "--threshold"
+                            ]
+                        },
+                        "gather": {
+                            "id": "args:gather",
+                            "type": "null",
+                            "description": "gathers current advisories into a json file for offline checks"
+                        },
+                        "login": {
+                            "id": "login",
+                            "type": "string",
+                            "description": "login to the node security project"
+                        },
+                        "--proxy": {
+                            "id": "args:--proxy",
+                            "type": "string",
+                            "description": "https proxy to be used for API calls"
+                        },
+                        "--token": {
+                            "id": "args:--token",
+                            "type": "string",
+                            "description": "authentication token used to make api requests"
+                        },
+                        "--reporter": {
+                            "id": "args:--reporter",
+                            "type": "string",
+                            "description": "output reporter",
+                            "default": "table"
+                        },
+                        "--verbose": {
+                            "id": "args:--verbose",
+                            "type": "null",
+                            "description": "provide more verbose output"
+                        },
+                        "--quiet": {
+                            "id": "args:--quiet",
+                            "type": "null",
+                            "description": "suppress output"
+                        },
+                        "--ignore-server-errors": {
+                            "id": "args:--ignore-server-errors",
+                            "type": "null",
+                            "description": "do not exit with an error code when errors are due to server problems"
+                        },
+                        "--preprocessor": {
+                            "id": "args:--preprocessor",
+                            "type": "string",
+                            "description": "project preprocessor"
+                        },
+                        "--version": {
+                            "id:": "linterhub:version",
+                            "type": "null",
+                            "description": "Output the version number"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Output usage information"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "nsp"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "nsp",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "nsp",
+                        "version": "3.2.1",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "nsp",
+            "description": "node security platform command-line tool",
+            "url": "https://github.com/nodesecurity/nsp",
+            "languages": [
+                "JavaScript"
+            ],
+            "license": "Apache-2.0"
+        }
+    },
+    "polylint": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "name": "polylint",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/arguments"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--bowerdir": {
+                            "type": "string",
+                            "description": "Bower components directory. Defaults to 'bower_components'"
+                        },
+                        "--verbose": {
+                            "type": "null",
+                            "description": "Writes verbose logging."
+                        },
+                        "--quiet": {
+                            "id": "args:--quiet",
+                            "type": "null",
+                            "description": "silence output"
+                        },
+                        "--debug": {
+                            "id": "args:--debug",
+                            "type": "null",
+                            "description": "Writes debugging trace."
+                        },
+                        "--policy": {
+                            "id": "args:--policy",
+                            "type": "string",
+                            "description": "Your jsconf.json policy file."
+                        },
+                        "--root": {
+                            "id": "args:--root",
+                            "type": "string",
+                            "description": "Root directory against which URLs in inputs are resolved. If not specified, then the current working directory is used."
+                        },
+                        "--input": {
+                            "id": "linterhub:filename",
+                            "type": "string",
+                            "description": "Polymer source files."
+                        },
+                        "--config-field": {
+                            "id": "args:--config-field",
+                            "type": "string",
+                            "description": "If config-file is used for inputs, this field determines which file(s) are linted."
+                        },
+                        "--no-recursion": {
+                            "id": "args:--no-recursion",
+                            "type": "null",
+                            "description": "Only report errors on specified input files, not from their dependencies."
+                        },
+                        "--config-file": {
+                            "id": "linterhub:config",
+                            "type": "string",
+                            "description": "Reads csslint options from specified file"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Show help"
+                        },
+                        "--stdin": {
+                            "id": "linterhub:stdin",
+                            "type": "null",
+                            "description": "Lint code provided on stdin"
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "polylint"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "polylint",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "polylint",
+                        "version": "2.10.4",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "polylint",
+            "description": "Keeps your Polymer Elements clean and functional!",
+            "url": "https://github.com/PolymerLabs/polylint",
+            "languages": [
+                "HTML",
+                "JavaScript"
+            ],
+            "configs": [
+                ".json"
+            ],
+            "license": "BSD-3-Clause"
+        }
+    },
+    "proselint": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "id": "proselint",
+            "name": "proselint",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/options"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--json": {
+                            "id": "args:--json",
+                            "type": "null",
+                            "description": "Output as JSON."
+                        },
+                        "--time": {
+                            "id": "args:--time",
+                            "type": "null",
+                            "description": "Time on a corpus."
+                        },
+                        "--debug": {
+                            "id": "args:--debug",
+                            "type": "null",
+                            "description": "Give verbose output."
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        },
+                        "--version": {
+                            "id:": "linterhub:version",
+                            "type": "null",
+                            "description": "Output the version number"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Output usage information"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "proselint"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "proselint",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "pip"
+                    },
+                    {
+                        "manager": "pip",
+                        "package": "proselint",
+                        "version": "0.8.0",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "proselint",
+            "description": "Proselint, a linter for English prose.",
+            "url": "https://github.com/sasstools/sass-lint",
+            "languages": [
+                "Markdown"
+            ],
+            "license": "BSD-3-Clause"
+        }
+    },
+    "remark-lint": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "id": "remark-lint",
+            "name": "remark-lint",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/options"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--ignore": {
+                            "type": "null",
+                            "description": "Search for ignore files"
+                        },
+                        "--no-ignore": {
+                            "type": "null",
+                            "description": "Ingores files by default"
+                        },
+                        "--stdout": {
+                            "type": "null",
+                            "description": "Specify writing to stdout"
+                        },
+                        "--no-stdout": {
+                            "type": "null",
+                            "description": "Stdout by default"
+                        },
+                        "--no-color": {
+                            "type": "null",
+                            "description": "Color in report by default"
+                        },
+                        "--color": {
+                            "type": "null",
+                            "description": "Specify color in report"
+                        },
+                        "--no-config": {
+                            "type": "null",
+                            "description": "Configuration files  by default"
+                        },
+                        "--config": {
+                            "type": "null",
+                            "description": "Search for configuration files"
+                        },
+                        "--inspect": {
+                            "type": "null",
+                            "description": "Output formatted syntax tree"
+                        },
+                        "--tree-out": {
+                            "type": "null",
+                            "description": "Output syntax tree"
+                        },
+                        "--tree-in": {
+                            "type": "null",
+                            "description": "Specify input as syntax tree"
+                        },
+                        "--file-path": {
+                            "id": "args:--file-path",
+                            "type": "string",
+                            "description": "Specify path to process as"
+                        },
+                        "--report": {
+                            "id": "args:--report",
+                            "type": "string",
+                            "description": "Specify reporter"
+                        },
+                        "--tree": {
+                            "type": "null",
+                            "description": "Specify input and output as syntax tree"
+                        },
+                        "--frail": {
+                            "type": "null",
+                            "description": "Exit with 1 on warnings"
+                        },
+                        "--silent": {
+                            "type": "null",
+                            "description": "Output only errors"
+                        },
+                        "--quiet": {
+                            "type": "null",
+                            "description": "Output only warnings and errors"
+                        },
+                        "--watch": {
+                            "type": "null",
+                            "description": "Watch for changes and reprocess"
+                        },
+                        "--use": {
+                            "id": "args:--use",
+                            "type": "string",
+                            "description": "Use plugins"
+                        },
+                        "--ext": {
+                            "id": "args:--ext",
+                            "type": "string",
+                            "description": "Specify extensions"
+                        },
+                        "--setting": {
+                            "id": "args:--setting",
+                            "type": "string",
+                            "description": "Specify settings"
+                        },
+                        "--ingore-path": {
+                            "id": "args:--ingore-path",
+                            "type": "string",
+                            "description": "Specify ignore file"
+                        },
+                        "--rc-path": {
+                            "id": "args:--rc-path",
+                            "type": "string",
+                            "description": "Specify configuration file"
+                        },
+                        "--output": {
+                            "id": "linterhub:filename",
+                            "type": "string",
+                            "description": "The path and filename where you would like output to be written"
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        },
+                        "--version": {
+                            "id:": "linterhub:version",
+                            "type": "null",
+                            "description": "Output the version number"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Output usage information"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "remark-lint"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "remark-lint",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "remark-cli",
+                        "version": "5.0.0",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "remark-lint",
+            "description": "remark-lint is a markdown code style linter built on remark",
+            "url": "https://github.com/remarkjs/remark-lint/tree/master/packages/remark-lint",
+            "languages": [
+                "Markdown"
+            ],
+            "license": "MIT"
+        }
+    },
+    "sass-lint": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "id": "sass-lint",
+            "name": "sass-lint",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/options"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--config": {
+                            "id": "linterhub:config",
+                            "type": "string",
+                            "description": "Path to custom config file"
+                        },
+                        "--ignore": {
+                            "id": "args:--ingnore",
+                            "type": "string",
+                            "description": "Pattern to ignore. For multiple ignores, separate each pattern by `, ` within a string"
+                        },
+                        "--no-exit": {
+                            "type": "null",
+                            "description": "Do not exit on errors"
+                        },
+                        "--verbose": {
+                            "type": "null",
+                            "description": "Verbose output"
+                        },
+                        "--format": {
+                            "id": "args:--format",
+                            "type": "string",
+                            "description": "Pass one of the available eslint formats",
+                            "default": "json"
+                        },
+                        "--output": {
+                            "id": "linterhub:filename",
+                            "type": "string",
+                            "description": "The path and filename where you would like output to be written"
+                        },
+                        "--syntax": {
+                            "id": "args:--syntax",
+                            "type": "string",
+                            "description": "Syntax to evaluate the file(s) with (either sass or scss)"
+                        },
+                        "--max-warnings": {
+                            "id": "args:--max-warnings",
+                            "type": "number",
+                            "description": "Number of warnings to trigger nonzero exit code"
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        },
+                        "--version": {
+                            "id:": "linterhub:version",
+                            "type": "null",
+                            "description": "Output the version number"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Output usage information"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "sass-lint"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "sass-lint",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "sass-lint",
+                        "version": "1.12.1",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "sass-lint",
+            "description": "Sass linter for both sass and scss syntax",
+            "url": "https://github.com/sasstools/sass-lint",
+            "languages": [
+                "Sass",
+                "SCSS"
+            ],
+            "license": "MIT"
+        }
+    },
+    "stylelint": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "name": "stylelint",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/arguments"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--config": {
+                            "id": "linterhub:config",
+                            "type": "string",
+                            "description": "Path to a specific configuration file"
+                        },
+                        "--config-basedir": {
+                            "id": "args:--config-basedir",
+                            "type": "string",
+                            "description": "An absolute path to the directory that relative paths defining \"extends\" and \"plugins\" are *relative to*"
+                        },
+                        "--ignore-path": {
+                            "id": "args:--ignore-path",
+                            "type": "string",
+                            "description": "Path to a file containing patterns that describe files to ignore."
+                        },
+                        "--ignore-pattern": {
+                            "type": "string",
+                            "description": "Pattern of files to ignore (in addition to those in .stylelintignore)"
+                        },
+                        "--syntax": {
+                            "id": "args:--syntax",
+                            "type": "string",
+                            "description": "Specify a non-standard syntax",
+                            "enum": [
+                                "scss",
+                                "less",
+                                "sugarss"
+                            ]
+                        },
+                        "--fix": {
+                            "id": "args:--fix",
+                            "type": "null",
+                            "description": "Automatically fix violations of certain rules."
+                        },
+                        "--custom-syntax": {
+                            "id": "args:--custom-syntax",
+                            "type": "string",
+                            "description": "Module name or path to a JS file exporting a PostCSS-compatible syntax."
+                        },
+                        "--stdin-filename": {
+                            "id": "linterhub:filename",
+                            "type": "string",
+                            "description": "A filename to assign stdin input."
+                        },
+                        "--ignore-disables": {
+                            "id": "args:--ignore-disables",
+                            "type": "string",
+                            "description": "Ignore styleline-disable comments."
+                        },
+                        "--disable-default-ignores": {
+                            "id": "args:--disable-default-ignores",
+                            "type": "null",
+                            "description": "Allow linting of node_modules and bower_components."
+                        },
+                        "--cache": {
+                            "id": "args:--cache",
+                            "type": "null",
+                            "description": "Store the info about processed files in order to only operate on the changed ones the next time you run stylelint."
+                        },
+                        "--cache-location": {
+                            "id": "args:--cache-location",
+                            "type": "string",
+                            "description": "Path to a file or directory to be used for the cache location."
+                        },
+                        "--formatter": {
+                            "type": "string",
+                            "description": "The output formatter",
+                            "enum": [
+                                "json",
+                                "string",
+                                "verbose"
+                            ]
+                        },
+                        "--version": {
+                            "id": "linterhub:version",
+                            "type": "null",
+                            "description": "Show version of linter"
+                        },
+                        "--custom-formatter": {
+                            "type": "string",
+                            "description": "Path to a JS file exporting a custom formatting function."
+                        },
+                        "--quiet": {
+                            "id": "args:--quiet",
+                            "type": "null",
+                            "description": "Only register warnings for rules with an error-level severity (ignore warning-level)"
+                        },
+                        "--color": {
+                            "id": "args:--color",
+                            "type": "null",
+                            "description": "Force enabling of color."
+                        },
+                        "--no-color": {
+                            "id": "args:--no-color",
+                            "type": "null",
+                            "description": "Force disabling of color."
+                        },
+                        "--allow-empty-input": {
+                            "id": "args:--allow-empty-input",
+                            "type": "null",
+                            "description": "If no files match glob pattern, exits without throwing an error."
+                        },
+                        "--report-needless-disables": {
+                            "id": "args:--report-needless-disables",
+                            "type": "null",
+                            "description": "Report stylelint-disable comments that are not blocking a lint warning."
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "stylelint"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "stylelint",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "stylelint",
+                        "version": "1.5.9",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "stylelint",
+            "description": "A mighty, modern CSS linter.",
+            "url": "https://stylelint.io",
+            "languages": [
+                "CSS",
+                "Less",
+                "SCSS"
+            ],
+            "configs": [
+                ".json",
+                ".yml",
+                ".js",
+                ".stylelintrc",
+                ".yaml"
+            ],
+            "license": "MIT"
+        }
+    },
+    "stylint": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "name": "stylint",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/arguments"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--watch": {
+                            "id": "args:--watch",
+                            "type": "boolean",
+                            "description": "Watch file or directory and run lint on change"
+                        },
+                        "--strict": {
+                            "type": "boolean",
+                            "description": "Run all tests, regardless of config"
+                        },
+                        "--reporter": {
+                            "type": "string",
+                            "description": "Custom reporter npm module name"
+                        },
+                        "--config": {
+                            "id": "linterhub:config",
+                            "type": "string",
+                            "description": "Reads csslint options from specified file"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Show help"
+                        },
+                        "--version": {
+                            "id": "linterhub:version",
+                            "type": "string",
+                            "description": "Show version"
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "stylint"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "stylint",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "stylint",
+                        "version": "1.5.9",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "stylint",
+            "description": "A linter for stylus",
+            "url": "https://github.com/SimenB/stylint#readme",
+            "languages": [
+                "CSS"
+            ],
+            "configs": [
+                ".configrc",
+                ".stylintrc"
+            ],
+            "license": "AGPL-3.0"
+        }
+    },
+    "tslint": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "id": "tslint",
+            "name": "tslint",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/arguments"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "description": "The engine command line arguments",
+                    "properties": {
+                        "--config": {
+                            "id": "linterhub:--config",
+                            "type": "string",
+                            "description": "The location of the configuration file that tslint will use to determine which rules are activated and what options to provide to the rules. If no option is specified, the config file named tslint.json is used, so long as it exists in the path. The format of the file is { rules: { /* rules list */ } }, where /* rules list */ is a key: value comma-separated list of rulename: rule-options pairs. Rule-options can be either a boolean true/false value denoting whether the rule is used or not, or a list [boolean, ...] where the boolean provides the same role as in the non-list case, and the rest of the list are options passed to the rule that will determine what it checks for (such as number of characters for the max-line-length rule, or what functions to ban for the ban rule)."
+                        },
+                        "--exclude": {
+                            "id": "args:--exclude",
+                            "type": "string",
+                            "description": "A filename or glob which indicates files to exclude from linting. This option can be supplied multiple times if you need multiple globs to indicate which files to exclude."
+                        },
+                        "--fix": {
+                            "id": "args:--fix",
+                            "type": "null",
+                            "description": "Fixes linting errors for select rules. This may overwrite linted files."
+                        },
+                        "--force": {
+                            "id": "args:--force",
+                            "type": "null",
+                            "description": "Return status code 0 even if there are any lint errors. Useful while running as npm script."
+                        },
+                        "--init": {
+                            "id": "args:--init",
+                            "type": "null",
+                            "description": "Generates a tslint.json config file in the current working directory."
+                        },
+                        "--out": {
+                            "id": "args:--out",
+                            "type": "string",
+                            "description": "A filename to output the results to. By default, tslint outputs to stdout, which is usually the console where you're running it from."
+                        },
+                        "--outputAbsolutePaths": {
+                            "id": "args:--outputAbsolutePaths",
+                            "type": "null",
+                            "description": "If true, all paths in the output will be absolute."
+                        },
+                        "--rules-dir": {
+                            "id": "args:--rules-dir",
+                            "type": "string",
+                            "description": "An additional rules directory, for user-created rules. tslint will always check its default rules directory, in node_modules/tslint/lib/rules, before checking the user-provided rules directory, so rules in the user-provided rules directory with the same name as the base rules will not be loaded."
+                        },
+                        "--formatters-dir": {
+                            "id": "args:--formatters-dir",
+                            "type": "string",
+                            "description": "An additional formatters directory, for user-created formatters. Formatters are files that will format the tslint output, before writing it to stdout or the file passed in --out. The default directory, node_modules/tslint/build/formatters, will always be checked first, so user-created formatters with the same names as the base formatters will not be loaded."
+                        },
+                        "--format": {
+                            "id": "args:--format",
+                            "type": "string",
+                            "description": "The formatter to use to format the results of the linter before outputting it to stdout or the file passed in --out. The core formatters are prose (human readable), json (machine readable) and verbose. prose is the default if this option is not used. Other built-in options include pmd, msbuild, checkstyle, and vso. Additional formatters can be added and used if the --formatters-dir option is set."
+                        },
+                        "--test": {
+                            "id": "args:--test",
+                            "type": "null",
+                            "description": "Runs tslint on matched directories and checks if tslint outputs match the expected output in .lint files. Automatically loads the tslint.json files in the directories as the configuration file for the tests. See the full tslint documentation for more details on how this can be used to test custom rules."
+                        },
+                        "--project": {
+                            "id": "args:--project",
+                            "type": "string",
+                            "description": "The path or directory containing a tsconfig.json file that will be used to determine which files will be linted. This flag also enables rules that require the type checker."
+                        },
+                        "--type-check": {
+                            "id": "args:--type-check",
+                            "type": "null",
+                            "description": "(deprecated) Checks for type errors before linting a project. --project must be specified in order to enable type checking."
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        },
+                        "--version": {
+                            "id:": "linterhub:version",
+                            "type": "null",
+                            "description": "Output the version number"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Output usage information"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "tslint"
+                            ]
+                        },
+                        "arguments": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/arguments"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "name": "tslint",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "typescript"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "tslint",
+                        "version": "5.9.1",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "tslint",
+            "description": "An extensible linter for the TypeScript language",
+            "url": "https://palantir.github.io/tslint/",
+            "languages": [
+                "TypeScript"
+            ],
+            "license": "Apache-2.0"
+        }
+    },
+    "xo": {
+        "args": {
+            "$schema": "https://repometric.github.io/linterhub/schema/args.json",
+            "id": "xo",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/options"
+                }
+            ],
+            "definitions": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {
+                        "--init": {
+                            "id": "args:--init",
+                            "type": "string",
+                            "description": "Add XO to your project"
+                        },
+                        "--fix": {
+                            "id": "args:--fix",
+                            "type": "null",
+                            "description": "Automagically fix issues"
+                        },
+                        "--reporter": {
+                            "type": "string",
+                            "description": "Reporter to use"
+                        },
+                        "--env": {
+                            "id": "args:--env",
+                            "type": "array",
+                            "description": "Environment preset"
+                        },
+                        "--global": {
+                            "id": "args:--global",
+                            "type": "array",
+                            "description": "Global variable"
+                        },
+                        "--ignore": {
+                            "id": "args:--ignore",
+                            "type": "array",
+                            "description": "Additional paths to ignore"
+                        },
+                        "--space": {
+                            "id": "args:--space",
+                            "type": "number",
+                            "description": "Use space indent instead of tabs"
+                        },
+                        "--no-semicolon": {
+                            "type": "string",
+                            "description": "Prevent use of semicolons"
+                        },
+                        "--plugin": {
+                            "id": "args:--plugin",
+                            "type": "array",
+                            "description": "Include third-party plugins"
+                        },
+                        "--extend": {
+                            "id": "args:--extend",
+                            "type": "array",
+                            "description": "Extend defaults with a custom config"
+                        },
+                        "--open": {
+                            "id": "args:--open",
+                            "type": "string",
+                            "description": "Open files with issues in your editor"
+                        },
+                        "--quiet": {
+                            "id": "args:--quiet",
+                            "type": "null",
+                            "description": "Show only errors and no warnings"
+                        },
+                        "--extension": {
+                            "id": "args:--extension",
+                            "type": "array",
+                            "description": "Additional extension to lint"
+                        },
+                        "--no-esnext": {
+                            "id": "args:--no-esnext",
+                            "type": "null",
+                            "description": "Don't enforce ES2015+ rules"
+                        },
+                        "--cwd": {
+                            "type": "string",
+                            "description": "Working directory for files"
+                        },
+                        "--help": {
+                            "type": "null",
+                            "description": "Show help"
+                        },
+                        "--stdin-filename": {
+                            "type": "string",
+                            "description": "Specify a filename for the --stdin option"
+                        },
+                        "--stdin": {
+                            "id": "linterhub:stdin",
+                            "type": "null",
+                            "description": "Lint code provided on stdin"
+                        },
+                        "": {
+                            "id": "linterhub:path",
+                            "type": "string",
+                            "description": "Path for analysis"
+                        }
+                    }
+                },
+                "section": {
+                    "type": "object",
+                    "description": "The engine configuration section",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The engine name",
+                            "enum": [
+                                "xo"
+                            ]
+                        },
+                        "options": {
+                            "type": "object",
+                            "description": "The engine configuration",
+                            "$ref": "#/definitions/options"
+                        }
+                    }
+                }
+            }
+        },
+        "deps": {
+            "$schema": "https://repometric.github.io/linterhub/schema/deps.json",
+            "id": "xo",
+            "dependencies": [
+                [
+                    {
+                        "manager": "platform",
+                        "package": "npm"
+                    },
+                    {
+                        "manager": "npm",
+                        "package": "xo",
+                        "version": "0.18.2",
+                        "engine": true
+                    }
+                ]
+            ]
+        },
+        "meta": {
+            "$schema": "https://repometric.github.io/linterhub/schema/meta.json",
+            "name": "xo",
+            "description": "JavaScript happiness style linter",
+            "url": "https://github.com/sindresorhus/xo",
+            "languages": [
+                "JavaScript"
+            ],
+            "configs": [
+                ".json"
+            ],
+            "license": "MIT"
+        }
+    }
+}
